@@ -33,3 +33,17 @@ txt <- "See, earlier this week there was a Groupon deal in the U.K. Café Solos 
 exe_path <- "/Users/user/Desktop/code_sandbox/rust/berttagr_mac/rustlib"
 tagged_txt <- system2(exe_path, txt, stdout=TRUE)
 ```
+
+With a little bit of manipulation, the output can be reformatted as a nice table.
+
+```r
+tagged_txt <- gsub(" \\}, POSTag \\{ ", "}]}, {\\\"POSTag\\\": [{", tagged_txt)
+tagged_txt <- gsub("label:", "\\\"label\\\":", tagged_txt)
+tagged_txt <- gsub("word:", "\\\"word\\\":", tagged_txt)
+tagged_txt <- gsub("^\\[POSTag \\{ ", "{\\\"Tetagged_txtt\\\": [{\\\"POSTag\\\": [{", tagged_txt)
+tagged_txt <- gsub("\\]$", "]}]}", tagged_txt)
+tagged_txt <- stringr::str_replace_all(tagged_txt, stringr::fitagged_txted("\\'"), "'")
+tagged_txt <- jsonlite::fromJSON(tagged_txt)
+tagged_txt <- dplyr::bind_rows(tagged_txt)
+tagged_txt <- tidyr::unnest(tagged_txt)
+```
