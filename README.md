@@ -26,3 +26,10 @@ R.utils::createLink(link="/usr/local/lib/libc10.dylib", "/Users/user/Downloads/l
 R.utils::createLink(link="/usr/local/lib/libiomp5.dylib", "/Users/user/Downloads/libtorch/lib/libiomp5.dylib", method="unix-symlink")
 ```
 
+Calling the executable is straightforward, as stored objects can be directly passed as arguments.
+
+```r
+txt <- "See, earlier this week there was a Groupon deal in the U.K. Café Solos for $39 + $6 shipping. At $45 total \\(more or less 50% off\\), all of a sudden these things must have seemed much more attractive because at least 620 of them were sold."
+exe_path <- "/Users/user/Desktop/code_sandbox/rust/berttagr_mac/rustlib"
+tagged_txt <- system2(exe_path, txt, stdout=TRUE)
+```
