@@ -40,7 +40,7 @@ With a little bit of manipulation, the output can be reformatted as a nice table
 tagged_txt <- gsub(" \\}, POSTag \\{ ", "}]}, {\\\"POSTag\\\": [{", tagged_txt)
 tagged_txt <- gsub("label:", "\\\"label\\\":", tagged_txt)
 tagged_txt <- gsub("word:", "\\\"word\\\":", tagged_txt)
-tagged_txt <- gsub("^\\[POSTag \\{ ", "{\\\"Tetagged_txtt\\\": [{\\\"POSTag\\\": [{", tagged_txt)
+tagged_txt <- gsub("^\\[POSTag \\{ ", "{\\\"Text\\\": [{\\\"POSTag\\\": [{", tagged_txt)
 tagged_txt <- gsub("\\]$", "]}]}", tagged_txt)
 tagged_txt <- stringr::str_replace_all(tagged_txt, stringr::fitagged_txted("\\'"), "'")
 tagged_txt <- jsonlite::fromJSON(tagged_txt)
