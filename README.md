@@ -2,7 +2,7 @@
 
 The release folder contains a build of the **rustlib** executable for Mac/Unix OS.
 
-The executable can be called from the terminal or from R using the **system2( ) function.
+The executable can be called from the terminal or from R using the **system2( )** function.
 
 The **rustlib** is a proof-of-concept part-of-speech tagger. To run, it also requires the following compiled PyTorch dylibs:
 
